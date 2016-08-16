@@ -1,6 +1,6 @@
 'use strict'
 
-const { diffWordsWithSpace } = require('jsdiff')
+const { diffWordsWithSpace } = require('diff')
 
 const { formatLists, parseLists } = require('./lib/list')
 const { wrapChange } = require('./lib/util')

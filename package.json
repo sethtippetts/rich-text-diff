@@ -1,7 +1,7 @@
 {
   "name": "rich-text-diff",
   "version": "0.0.1",
-  "description": "",
+  "description": "Visualize differences in rich text (Markdown)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jsdiff": "^1.1.1",
+    "diff": "^2.2.3",
     "lodash": "^4.14.2"
   },
   "devDependencies": {
