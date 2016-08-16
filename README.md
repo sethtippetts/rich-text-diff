@@ -15,8 +15,23 @@ npm i --save rich-text-diff
 ```js
 const diff = require('rich-text-diff')
 
-const str1 = `# Some crazy markdown. It's the best.`
-const str2 = `# Some completely sane markdown. It's ok I guess.`
+const str1 = `
+# Some crazy markdown.
+
+It's the best.
+
+- List Item 1
+- List Item 2
+- List Item 3
+`
+const str2 = `
+# Some completely sane markdown.
+
+It's ok I guess.
+
+- List Item 1
+- List Item 3
+`
 
 diff(str1, str2)
  /*
