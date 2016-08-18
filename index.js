@@ -11,13 +11,13 @@ module.exports = function richDiff (str1, str2) {
   const parsed2 = parseLists(str2)
 
   return diffWordsWithSpace(parsed1.text, parsed1.text)
-    .map((change) => {
+    .map(function (change) {
       const hasList = change.value.includes('{{{ LIST }}}')
       const hasChange = change.added ^ change.removed ? !!change.added : null
       if (hasList) {
         return formatLists(change.value, parsed1.list, parsed2.list, hasChange)
       }
-      return wrapChange(change.value, hasChange)
+      return wrapChange(hasChange, change.value)
     })
     .join('')
 }
