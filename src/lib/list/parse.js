@@ -1,14 +1,14 @@
 'use strict'
 
-const { isListItem } = require('../util')
+var isListItem = require('../util')
 
 module.exports = function parseLists (str) {
-  const results = str
+  var results = str
     .split(/\n/)
-    .reduce((memo, line, idx, arr) => {
+    .reduce(function (memo, line, idx, arr) {
       if (isListItem(line)) {
         memo.list[memo.count] = memo.list[memo.count] || { items: [], isOrdered: false }
-        const isOrdered = /^\d+\.\s/.test(line)
+        var isOrdered = /^\d+\.\s/.test(line)
         line = line.replace(/^(\d+\.|-)\s/, '')
         memo.list[memo.count].isOrdered = isOrdered
         memo.list[memo.count].items.push(line)
