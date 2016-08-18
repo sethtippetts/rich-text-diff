@@ -1,22 +1,23 @@
 'use strict'
 
-const { diffWordsWithSpace } = require('diff')
+const diffWordsWithSpace = require('diff').diffWordsWithSpace
 
-const { formatLists, parseLists } = require('./lib/list')
-const { wrapChange } = require('./lib/util')
+const formatLists = require('./lib/list/format')
+const parseLists = require('./lib/list/parse')
+const wrapChange = require('./lib/util').wrapChange
 
 module.exports = function richDiff (str1, str2) {
-  const { text: text1, list: list1 } = parseLists(str1)
-  const { text: text2, list: list2 } = parseLists(str2)
+  const parsed1 = parseLists(str1)
+  const parsed2 = parseLists(str2)
 
-  return diffWordsWithSpace(text1, text2)
-    .map(({ value, added, removed }) => {
-      const hasList = value.includes('{{{ LIST }}}')
-      const hasChange = added ^ removed ? !!added : null
+  return diffWordsWithSpace(parsed1.text, parsed1.text)
+    .map((change) => {
+      const hasList = change.value.includes('{{{ LIST }}}')
+      const hasChange = change.added ^ change.removed ? !!change.added : null
       if (hasList) {
-        return formatLists(value, list1, list2, hasChange)
+        return formatLists(change.value, parsed1.list, parsed2.list, hasChange)
       }
-      return wrapChange(value, hasChange)
+      return wrapChange(change.value, hasChange)
     })
     .join('')
 }
