@@ -1,6 +1,6 @@
 {
   "name": "rich-text-diff",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Visualize differences in rich text (Markdown)",
   "main": "dist/index.js",
   "scripts": {
