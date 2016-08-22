@@ -1,6 +1,6 @@
 'use strict'
 
-var isListItem = require('../util')
+var { isListItem } = require('../util')
 
 module.exports = function parseLists (str) {
   var results = str
