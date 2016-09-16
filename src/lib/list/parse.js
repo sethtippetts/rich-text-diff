@@ -13,7 +13,7 @@ module.exports = function parseLists (str) {
         memo.list[memo.count].isOrdered = isOrdered
         memo.list[memo.count].items.push(line)
         if (!isListItem(arr[idx + 1])) {
-          memo.lines.push('{{{ LIST }}}')
+          memo.lines.push('{{{LIST}}}')
           memo.count++
         }
         return memo
