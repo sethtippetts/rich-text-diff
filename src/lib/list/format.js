@@ -5,7 +5,7 @@ const { getNextItem, wrapChange } = require('../util')
 const get = require('lodash.get')
 const isBoolean = require('lodash.isboolean')
 
-const LIST_TOKEN = /\{\{\{ LIST \}\}\}/
+const LIST_TOKEN = /\{\{\{LIST\}\}\}/
 
 module.exports = function formatLists (str, list1, list2, isAdded) {
   while (LIST_TOKEN.test(str)) {

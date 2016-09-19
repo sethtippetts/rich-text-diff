@@ -11,7 +11,7 @@ module.exports = function richDiff (str1, str2) {
 
   return diffWordsWithSpace(text1, text2)
     .map(({ value, added, removed }) => {
-      const hasList = value.includes('{{{ LIST }}}')
+      const hasList = value.includes('{{{LIST}}}')
       const hasChange = added ^ removed ? !!added : null
       if (hasList) {
         return formatLists(value, list1, list2, hasChange)
