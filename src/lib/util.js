@@ -8,7 +8,7 @@ function getNextItem (list, isAdded, isFirst) {
 }
 
 function isListItem (line) {
-  return /^\s*(-\s|\d+\.\s)/m.test(line)
+  return /^\s*([-*]\s|\d+\.\s)/m.test(line)
 }
 
 function wrapChange (val, isAdd) {
